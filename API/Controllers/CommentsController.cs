@@ -45,7 +45,7 @@ public class CommentsController(IGenericRepository<Comment> repo, IGenericReposi
 
         var commentDto = MapToDto(comment);
 
-        return commentDto;
+        return Created("", commentDto);
     }
 
     [HttpPut("{id:int}")]

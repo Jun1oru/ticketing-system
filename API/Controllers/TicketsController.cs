@@ -49,8 +49,7 @@ public class TicketsController(IGenericRepository<Ticket> repo) : ControllerBase
         await repo.SaveChangesAsync();
 
         var ticketDto = MapToDto(ticket);
-
-        return ticketDto;
+        return CreatedAtAction(nameof(GetTicketById), new { id = ticket.Id }, ticketDto);
     }
 
     [HttpPut("{id:int}")]
