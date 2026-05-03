@@ -1,0 +1,10 @@
+<app-header></app-header>
+
+<div class="container mt-6">
+  <h2 class="text-3xl font-bold underline">Ticketing System</h2>
+  <ul>
+    @for (ticket of tickets(); track ticket.id) {
+      <li>{{ ticket.title }}</li>
+    }
+  </ul>
+</div>
