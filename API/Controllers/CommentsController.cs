@@ -48,6 +48,43 @@ public class CommentsController(IGenericRepository<Comment> repo, IGenericReposi
         return commentDto;
     }
 
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult> UpdateComment(int id, int ticketId, UpdateCommentDto updateCommentDto)
+    {
+        if (!ticketRepo.Exists(ticketId))
+            return NotFound("Ticket not found");
+
+        var (comment, error) = await GetCommentForTicketAsync(id, ticketId);
+
+        if (error != null) return error;
+
+        comment!.Body = updateCommentDto.Body!;
+        comment.UpdatedAt = DateTime.UtcNow;
+
+        repo.Update(comment);
+
+        await repo.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult> DeleteComment(int id, int ticketId)
+    {
+        if (!ticketRepo.Exists(ticketId))
+            return NotFound("Ticket not found");
+
+        var (comment, error) = await GetCommentForTicketAsync(id, ticketId);
+
+        if (error != null) return error;
+
+        repo.Delete(comment!);
+
+        await repo.SaveChangesAsync();
+
+        return NoContent();
+    }
+
     private static CommentDto MapToDto(Comment comment) => new()
     {
         Id = comment.Id,
@@ -56,4 +93,15 @@ public class CommentsController(IGenericRepository<Comment> repo, IGenericReposi
         Body = comment.Body,
         TicketId = comment.TicketId
     };
+
+    private async Task<(Comment? comment, ActionResult? error)> GetCommentForTicketAsync(int id, int ticketId)
+    {
+        var comment = await repo.GetByIdAsync(id);
+
+        if (comment == null) return (null, NotFound("Comment not found"));
+
+        if (comment.TicketId != ticketId) return (null, NotFound("Comment not found for this ticket"));
+
+        return (comment, null);
+    }
 }

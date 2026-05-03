@@ -1,0 +1,27 @@
+[
+  { "Body": "User reported this started after the latest Windows update. Escalating to the hardware team.", "TicketId": 1 },
+  { "Body": "Checked the event logs — memory dump points to a driver conflict with the GPU.", "TicketId": 1 },
+  { "Body": "Rolled back the GPU driver. Monitoring for recurrence.", "TicketId": 1 },
+
+  { "Body": "Confirmed on our end — the SSO token provider is returning a 503. Investigating.", "TicketId": 2 },
+  { "Body": "SSO service restarted. Asking affected employees to retry.", "TicketId": 2 },
+
+  { "Body": "Checked the printer IP — it changed after the router was replaced. Updating the port config now.", "TicketId": 3 },
+
+  { "Body": "Issue isolated to machines running Office 365 build 16.0.17126. Rolling back to previous build.", "TicketId": 4 },
+  { "Body": "Rollback applied on both machines. Outlook is stable. Closing pending confirmation from users.", "TicketId": 4 },
+
+  { "Body": "Request approved by manager. Checking inventory for available monitors.", "TicketId": 5 },
+
+  { "Body": "Reproduced the issue internally. Looks like a MTU size mismatch on the VPN gateway.", "TicketId": 6 },
+  { "Body": "Pushed a config update to the gateway. Asking remote employees to test and report back.", "TicketId": 6 },
+
+  { "Body": "License renewed for 12 months. All team members should have access restored.", "TicketId": 7 },
+
+  { "Body": "Keyboard replaced with a spare from storage.", "TicketId": 8 },
+
+  { "Body": "Permissions were reset by a script during maintenance. Restored the correct ACL for the marketing folder.", "TicketId": 9 },
+  { "Body": "Confirmed with the marketing lead — access is working again. Closing ticket.", "TicketId": 9 },
+
+  { "Body": "GitHub and Slack accounts created. Working on Jira and internal systems access.", "TicketId": 10 }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "Title": "Laptop has blue screen error",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida, libero vitae pulvinar viverra, libero dui pharetra lorem, in auctor ex diam eu mauris.",
+    "Status": "Open",
+    "Priority": "High"
+  },
+  {
+    "Title": "Cannot access the HR portal",
+    "Description": "Several employees reported being unable to log into the HR portal since this morning. The page loads but the login button does not respond after entering credentials.",
+    "Status": "InProgress",
+    "Priority": "High"
+  },
+  {
+    "Title": "Printer on 3rd floor not responding",
+    "Description": "The shared printer in the 3rd floor office is offline. Restarting it did not help. Print jobs are stuck in the queue.",
+    "Status": "Open",
+    "Priority": "Medium"
+  },
+  {
+    "Title": "Email client crashing on startup",
+    "Description": "Outlook crashes immediately after the splash screen on two workstations in the finance department. Reinstalling did not resolve the issue.",
+    "Status": "InProgress",
+    "Priority": "High"
+  },
+  {
+    "Title": "Request for additional monitor",
+    "Description": "Employee from the marketing team is requesting a second monitor for their workstation to improve productivity.",
+    "Status": "Open",
+    "Priority": "Low"
+  },
+  {
+    "Title": "VPN disconnects randomly during calls",
+    "Description": "Multiple remote employees are experiencing VPN drops during video calls. The issue occurs roughly every 30 minutes and requires a manual reconnect.",
+    "Status": "InProgress",
+    "Priority": "High"
+  },
+  {
+    "Title": "Software license expired for design tool",
+    "Description": "The Figma license for the design team expired yesterday. Team members cannot access their projects until the license is renewed.",
+    "Status": "Resolved",
+    "Priority": "Medium"
+  },
+  {
+    "Title": "Keyboard keys sticking on reception desk PC",
+    "Status": "Resolved",
+    "Priority": "Low"
+  },
+  {
+    "Title": "Shared drive folder permissions incorrect",
+    "Description": "The marketing team cannot write to the shared drive folder they previously had access to. It appears permissions were reset after the recent server maintenance.",
+    "Status": "Closed",
+    "Priority": "Medium"
+  },
+  {
+    "Title": "New employee onboarding — account setup needed",
+    "Description": "A new developer is starting on Monday and needs accounts created for GitHub, Jira, Slack, and internal systems. Please provision access before end of Friday.",
+    "Status": "Open",
+    "Priority": "High"
+  }
+]

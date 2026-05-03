@@ -3,9 +3,9 @@ using Core.Entities;
 
 namespace API.DTOs.Comments;
 
-public class CreateCommentDto
+public class UpdateCommentDto
 {
     [Required]
     [MaxLength(Comment.BodyMaxLength)]
-    public string Body { get; set; } = string.Empty;
+    public string? Body { get; set; }
 }

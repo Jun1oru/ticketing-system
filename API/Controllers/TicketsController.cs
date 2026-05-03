@@ -87,11 +87,6 @@ public class TicketsController(IGenericRepository<Ticket> repo) : ControllerBase
         return NoContent();
     }
 
-    private bool TicketExists(int id)
-    {
-        return repo.Exists(id);
-    }
-
     private static TicketDto MapToDto(Ticket ticket) => new()
     {
         Id = ticket.Id,
