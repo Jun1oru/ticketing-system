@@ -1,6 +1,6 @@
 using Core.Enums;
 
-namespace API.DTOs;
+namespace API.DTOs.Tickets;
 
 public class TicketDto
 {

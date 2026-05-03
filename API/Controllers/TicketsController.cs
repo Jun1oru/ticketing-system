@@ -1,4 +1,4 @@
-using API.DTOs;
+using API.DTOs.Tickets;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -39,7 +39,9 @@ public class TicketsController(IGenericRepository<Ticket> repo) : ControllerBase
             Title = createTicketDto.Title,
             Description = createTicketDto.Description,
             Status = createTicketDto.Status!.Value,
-            Priority = createTicketDto.Priority!.Value
+            Priority = createTicketDto.Priority!.Value,
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
         };
 
         repo.Add(ticket);
@@ -52,10 +54,17 @@ public class TicketsController(IGenericRepository<Ticket> repo) : ControllerBase
     }
 
     [HttpPut("{id:int}")]
-    public async Task<ActionResult> UpdateTicket(int id, Ticket ticket)
+    public async Task<ActionResult> UpdateTicket(int id, UpdateTicketDto updateTicketDto)
     {
-        if (ticket.Id != id) return BadRequest("Cannot update this ticket");
-        if (!TicketExists(id)) return NotFound();
+        var ticket = await repo.GetByIdAsync(id);
+
+        if (ticket == null) return NotFound();
+
+        ticket.Title = updateTicketDto.Title!;
+        ticket.Description = updateTicketDto.Description;
+        ticket.Status = updateTicketDto.Status!.Value;
+        ticket.Priority = updateTicketDto.Priority!.Value;
+        ticket.UpdatedAt = DateTime.UtcNow;
 
         repo.Update(ticket);
 
